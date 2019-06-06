@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Actor;
 
 class ActorsController extends Controller
 {
-    protected $actors = [
+    /* protected $actors = [
         0 => [
             "name" => "Jorge Porcel",
             "awards" => 0,
@@ -22,7 +23,7 @@ class ActorsController extends Controller
             "awards" => 1,
             "best_movie" => "Jurassic Park"
         ]
-    ];
+    ]; 
 
     public function index(){
         return view('actors')->with('actors',$this->actors);
@@ -42,5 +43,15 @@ class ActorsController extends Controller
 public function create(){
     return view('addActor');
   }
+*/
+    public function index()
+    {   
+        //$generos = Genre::all()->toArray(); si yo le agrego un toArray(); me convierte la coleccion de objetos a un array asociativo.  
+        $actores = Actor::all(); 
+        // se puede ver el dd accediendo a la ruta indicada en routes que te lleva al metodo index de este controlador
+        return view('actors')->with('actores', $actores);
+        // return view('genres')->with('generos', $generos); antes usabamos el $this->generos en el segundo atributo del with porque era un array declarado por fuera de la funcion 
+    }
+
 
 }

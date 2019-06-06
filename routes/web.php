@@ -17,7 +17,7 @@
 //A
     Route::get('/movies', 'MovieController@index');
 //B    
-    Route::get('/movies/{title}', 'MovieController@show');
+    Route::get('/movies/{id}', 'MovieController@show');
 //C
     Route::get('/movies/new', 'MovieController@create');
 

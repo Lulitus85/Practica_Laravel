@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Movie;
 
 class MovieController extends Controller
 {   
     //
 
-    protected $movies = [
+    /* protected $movies = [
         0 => [
             "id"=>1,
             "title" => "Jurassic Park",
@@ -55,6 +56,18 @@ class MovieController extends Controller
    //aca se va a crear otro array dentro del array movies o, en la DB, una nueva posicion en la tabla movies
     public function create(){
       return view('addMovie');
-    }
+    } */
 
+    public function index(){
+        $movies = Movie::all();
+        return view('movies')->with('pelis',$movies);
+    }
+    
+    public function show($id){
+        $pelis = Movie::where('id', $id)->get();
+        return view('detallePelicula')->with('pelis',$pelis);
+        
+        }
 }
+
+
