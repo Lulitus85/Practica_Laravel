@@ -53,5 +53,17 @@ public function create(){
         // return view('genres')->with('generos', $generos); antes usabamos el $this->generos en el segundo atributo del with porque era un array declarado por fuera de la funcion 
     }
 
+    public function show($id){
+        $actor = Actor::find($id);
+        return view('detalleActor')
+                ->with('actor',$actor);
+        
+        }
+
+    
+    public function search($nombre){
+        //
+    }
+
 
 }

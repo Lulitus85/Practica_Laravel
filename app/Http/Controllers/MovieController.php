@@ -60,12 +60,13 @@ class MovieController extends Controller
 
     public function index(){
         $movies = Movie::all();
-        return view('movies')->with('pelis',$movies);
+        return view('movies')->with('movies',$movies);
     }
     
     public function show($id){
-        $pelis = Movie::where('id', $id)->get();
-        return view('detallePelicula')->with('pelis',$pelis);
+        $movies = Movie::find($id);
+        return view('detallePelicula')
+                ->with('movies',$movies);
         
         }
 }

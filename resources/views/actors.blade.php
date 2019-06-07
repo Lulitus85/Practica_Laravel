@@ -11,14 +11,22 @@
 {{-- <li><a href="/actors/{{ $actor['name'] }}"> {{ $actor['name'] }} </a></li>
     @endforeach
 </ul> --}}
-
+<br>
+<div class="buscador">
+    Buscar Actor 
+<input type="search">
+<button class="btn btn-light"type="submit"> Buscar! </button>
+</div>
+<br>
 <ul>
     @foreach($actores as $actor)
     <li>
-    <a href="">{{ $actor->first_name . " " . $actor->last_name }}</a>
+    <a href="/actor/{{$actor->id}}">{{ $actor->first_name . " " . $actor->last_name }}</a>
     </li>
     @endforeach
 </ul>
+
+<a href="{{ URL::previous() }}"> Volver </a>
 
 </article>
 

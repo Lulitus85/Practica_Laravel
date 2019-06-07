@@ -28,13 +28,15 @@
 
     Route::get('/actors', 'ActorsController@index');
 
-    Route::get('/actors/{name}', 'ActorsController@show');
+    Route::get('/actor/{id}', 'ActorsController@show');
 
     Route::get('/actors/new', 'ActorsController@create');
 
     Route::post('/actors/new', 'ActorsController@store');
 
-    //Crear Controller
+    Route::get('/actors/search', 'ActorController@search');
+
+    //Crear ActorController
 
     Route::get('/genres', 'GenresController@index');
 
