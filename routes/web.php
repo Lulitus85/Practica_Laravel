@@ -34,7 +34,7 @@
 
     Route::post('/actors/new', 'ActorsController@store');
 
-    Route::get('/actors/search', 'ActorController@search');
+    Route::get('/search-actor', 'SearchController@searchActor');
 
     //Crear ActorController
 

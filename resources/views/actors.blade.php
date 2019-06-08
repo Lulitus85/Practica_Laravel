@@ -12,11 +12,10 @@
     @endforeach
 </ul> --}}
 <br>
-<div class="buscador">
-    Buscar Actor 
-<input type="search">
+<form action="/search-actor" method="get">
+<input type="text" name="search" placeholder="Buscar Actor">
 <button class="btn btn-light"type="submit"> Buscar! </button>
-</div>
+</form>
 <br>
 <ul>
     @foreach($actores as $actor)
