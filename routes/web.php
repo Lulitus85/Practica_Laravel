@@ -14,7 +14,7 @@
     Route::get('/', function () {
     return view('welcome');
     }); 
-    Route::get('/movies', 'MovieController@index');
+
 //C
     Route::get('/movies/create', 'MovieController@create');
 

@@ -121,7 +121,7 @@ class MovieController extends Controller
         //luego de instancia guardamos el objeto en la base
         $pelicula->save();
 
-        return redirect()->route('/movies');
+        return redirect('/movies');
         //return view('movies');
 
 
