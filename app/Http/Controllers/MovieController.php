@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Movie;
+use App\Genre;
+use App\Actor;
+use DB;
+
 
 class MovieController extends Controller
 {   
@@ -69,6 +73,59 @@ class MovieController extends Controller
                 ->with('movies',$movies);
         
         }
+
+    public function create(){
+        return view('addMovie');
+    }
+
+
+    public function store(Request $request){
+        //el request es lo que le manda el formulario(post, get, lo que sea)
+
+        //define primero las reglas de los datos a validar
+        $reglas = [
+            'title' => 'required',
+            'rating' => 'required',
+            'awards' => 'required',
+            'dia' => 'required',
+            'mes' => 'required',
+            'anio' => 'required',
+        ];
+        //define un mensaje de error a validar
+        $mensaje = [
+            'required' => 'El campo :attribute es obligatorio'
+        ];
+        //valida las 3 variables. que este todas las requeridas y que NO haya errores
+        $this->validate($request, $reglas, $mensaje);
+
+
+        //generar el dato de fecha de creación.
+        //request es lo que viene por post en el form de crear peli
+        $dia = $request->input('dia');
+        $mes = $request->input('mes');
+        $anio = $request->input('anio');
+
+        //date_create: es un metodo que reemplaza al date_time()
+        $date=date_create($dia . '-' . $mes . '-' . $anio);
+        $release_date = date_format($date, "Y-m-d H:i:s");
+
+        //instanciamos la nueva pelicula a subir, le vamos a pasar el nombre de la columna en la tabla, el objeto request y el input con el name.
+        $pelicula = new Movie([
+            'title'=>$request->input('title'),
+            'rating'=>$request->input('rating'),
+            'awards'=>$request->input('awards'),
+            'length'=>$request->input('length'),
+            ('release_date')=>$release_date,
+        ]);
+
+        //luego de instancia guardamos el objeto en la base
+        $pelicula->save();
+
+        return redirect()->route('/movies');
+        //return view('movies');
+
+
+    }
 }
 
 

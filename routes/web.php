@@ -14,19 +14,23 @@
     Route::get('/', function () {
     return view('welcome');
     }); 
-//A
     Route::get('/movies', 'MovieController@index');
-//B    
-    Route::get('/movies/{id}', 'MovieController@show');
 //C
-    Route::get('/movies/new', 'MovieController@create');
+    Route::get('/movies/create', 'MovieController@create');
 
 //D
-    Route::post('/movies/new', 'MovieController@store');
+    Route::post('/movies/create', 'MovieController@store');
+
+//A
+    Route::get('/actors', 'ActorsController@index');
+
+
+    //B    
+    Route::get('/movies/{id}', 'MovieController@show');
 
 //E Crear MovieController
 
-    Route::get('/actors', 'ActorsController@index');
+    
 
     Route::get('/actor/{id}', 'ActorsController@show');
 

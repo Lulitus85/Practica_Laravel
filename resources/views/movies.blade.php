@@ -12,6 +12,12 @@
     @endforeach
 </ul>
 
+<br>
+<br>
+<form action="/movies/create" method="get">
+<button class="btn btn-light"type="submit"> Agregar Peli! </button>
+</form>
+
 </article>
 
 @endsection
