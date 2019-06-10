@@ -13,6 +13,13 @@
 <h2> Puntaje: {{ $actor->rating }} </h2>
 @endif
 
+{{-- ESTO sirve cuando lo que trae el controlador es una coleccion 
+    @foreach($movie as $mov)
+<h2> Peli Favorita: {{$mov->title}} </h2>
+@endforeach
+ --}}
+
+ <h2> Peli Favorita: {{$movie->title}} </h2>
 
 
 {{-- esto es de cuando era array y no DB 

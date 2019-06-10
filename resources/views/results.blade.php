@@ -7,15 +7,16 @@
 <ul>
     @foreach($results as $result)
         <li>
-            {{ $result->first_name . " " . $result->last_name }}
+            <a href="/actor/{{$result->id}}">{{ $result->first_name . " " . $result->last_name }} </a>
         </li>
     @endforeach
 
 </ul>
 @else
-    <h1> {{$results->first_name . " " . $results->last_name}} </h1>
-    <h3> Puntaje: {{$results->rating}} </h3>
-
+    @foreach($results as $result)
+    <h1> {{$result->first_name . " " . $result->last_name}} </h1>
+    <h3> Puntaje: {{$result->rating}} </h3>
+    @endforeach
 
 @endif
 

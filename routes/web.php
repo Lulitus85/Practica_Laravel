@@ -15,6 +15,8 @@
     return view('welcome');
     }); 
 
+    Route::get('/movies', "MovieController@index");
+
 //C
     Route::get('/movies/create', 'MovieController@create');
 
@@ -22,15 +24,14 @@
     Route::post('/movies/create', 'MovieController@store');
 
 //A
-    Route::get('/actors', 'ActorsController@index');
-
+   
 
     //B    
     Route::get('/movies/{id}', 'MovieController@show');
 
 //E Crear MovieController
 
-    
+    Route::get('/actors', 'ActorsController@index');
 
     Route::get('/actor/{id}', 'ActorsController@show');
 

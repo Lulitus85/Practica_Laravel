@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Actor;
+use App\Movie;
 
 class ActorsController extends Controller
 {
@@ -55,8 +56,21 @@ public function create(){
 
     public function show($id){
         $actor = Actor::find($id);
+       // dd($actor);
+        $favorite = $actor->favorite_movie_id;
+       // dd($favorite);
+       
+       
+       // $movie = Movie::where('id',$favorite)->get();
+       // dd($movie); 
+       //asi trae una coleccion: hay que hacer un foreach de esto ultimo ya que es un collection(y no un objeto), para que lo recorra 
+
+       //asi SI trae un objeto
+       $movie = Movie::find($favorite);
+       // dd($movie);
         return view('detalleActor')
-                ->with('actor',$actor);
+                ->with('actor',$actor)
+                ->with('movie',$movie);
         
         }
 
@@ -64,6 +78,9 @@ public function create(){
     public function search($nombre){
         //
     }
+
+
+
 
 
 }
