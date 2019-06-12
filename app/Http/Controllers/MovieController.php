@@ -69,8 +69,10 @@ class MovieController extends Controller
     
     public function show($id){
         $movies = Movie::find($id);
+        /* genero = Movie::find($id)->genre; */
         return view('detallePelicula')
                 ->with('movies',$movies);
+                
         
         }
 

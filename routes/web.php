@@ -31,22 +31,51 @@
 
 //E Crear MovieController
 
-    Route::get('/actors', 'ActorsController@index');
+    Route::get('/actors', 'ActorController@index');
 
-    Route::get('/actor/{id}', 'ActorsController@show');
+    Route::get('/actor/{id}', 'ActorController@show');
 
-    Route::get('/actors/new', 'ActorsController@create');
+    Route::get('/actors/new', 'ActorController@create');
 
-    Route::post('/actors/new', 'ActorsController@store');
+    Route::post('/actors/new', 'ActorController@store');
 
     Route::get('/search-actor', 'SearchController@searchActor');
 
-    //Crear ActorController
+    //Crear GenreController
 
-    Route::get('/genres', 'GenresController@index');
+    Route::get('/genres', 'GenreController@index');
 
-    Route::get('/genres/{id}', 'GenresController@show');
+    Route::get('/genres/new', 'GenreController@create');
 
-    Route::get('/genres/new', 'GenresController@create');
+    Route::post('/genres/new', 'GenreController@store');
 
-    Route::post('/genres/new', 'GenresController@store');
+    Route::get('/genres/{id}', 'GenreController@show');
+
+   
+/* 
+Route::get('/', 'HomeController@index');
+
+// Movies
+Route::group(['prefix' => 'movies'], function() {
+    Route::get('/', 'MovieController@index');
+    Route::get('/create', 'MovieController@create');
+    Route::post('/create', 'MovieController@store');
+    Route::get('/{id}','MovieController@show');
+
+});
+
+// Actors
+Route::group(['prefix' => 'actors'], function() {
+    Route::get('/', 'ActorController@index');
+    Route::get('/{id}', 'ActorController@show');
+    Route::get('/create', 'ActorController@create');
+    Route::post('/create', 'ActorController@store');
+});
+
+// Generos
+Route::group(['prefix' => 'genres'], function() {
+    Route::get('/', 'GenreController@index');
+    Route::get('/{id}', 'GenreController@show');
+    Route::get('/create', 'GenreController@create');
+    Route::post('/create', 'GenreController@store');
+}); */

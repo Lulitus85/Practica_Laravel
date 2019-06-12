@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Genre; //siempre agregar el modelo para poder usarlo en el controlador!!!
-use App\Movie; 
+//use App\Movie; 
 
-class GenresController extends Controller
+class GenreController extends Controller
 {
    /* protected $genres = [
         1 => "Comedia",
@@ -70,7 +70,7 @@ public function create(){
         // return view('genres')->with('generos', $generos); antes usabamos el $this->generos en el segundo atributo del with porque era un array declarado por fuera de la funcion 
     }
 
-    public function show($id){
+    /* public function show($id){
         $movies = Movie::where('genre_id',$id)->get();
         //siempre que tengo un where tengo que hacer un get();
         $genero = Genre::find($id);
@@ -78,7 +78,13 @@ public function create(){
         ->with('pelis',$movies)
         ->with('elGenero', $genero);
     }
-
+ */
     //esto me va a traer de la base de datos la pelicula que tenga un ID GENERO igual al id que le paso como parámetro.
 
+    //funcion show con el hasMany del modelo Genre
+    public function show($id){
+        $movies = Genre::find($id)->movies;
+        return view('movies')->with('movies',$movies);     
+    
+}
 }
