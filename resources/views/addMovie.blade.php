@@ -44,6 +44,23 @@
         <?php } ?>
     </select>
 </div>
+<div class="form-group">
+    <label for="genero">Género</label>
+    <select class="form-control" name="genre_id">
+        <option value="" disabled selected>Seleccione genero</option>
+        @foreach($genres as $genre)
+            @if ($genre->id == old("genre_id"))
+                <option value="{{ $genre->id }}" selected>
+                {{ $genre->name }}
+                </option>
+            @else
+                <option value="{{ $genre->id }}">
+                {{ $genre->name }}
+                </option>
+            @endif
+        @endforeach
+    </select>
+</div>
 
 <input type="submit" value="Agregar Pelicula" name="submit" />
 

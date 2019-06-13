@@ -77,7 +77,8 @@ class MovieController extends Controller
         }
 
     public function create(){
-        return view('addMovie');
+        $genres = Genre::all();
+        return view('addMovie')->with('genres',$genres);
     }
 
 
@@ -89,6 +90,7 @@ class MovieController extends Controller
             'title' => 'required',
             'rating' => 'required',
             'awards' => 'required',
+            'genre_id' => 'required',
             'dia' => 'required',
             'mes' => 'required',
             'anio' => 'required',
@@ -110,6 +112,9 @@ class MovieController extends Controller
         //date_create: es un metodo que reemplaza al date_time()
         $date=date_create($dia . '-' . $mes . '-' . $anio);
         $release_date = date_format($date, "Y-m-d H:i:s");
+
+        //genre_id 
+
 
         //instanciamos la nueva pelicula a subir, le vamos a pasar el nombre de la columna en la tabla, el objeto request y el input con el name.
         $pelicula = new Movie([
